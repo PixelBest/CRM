@@ -32,15 +32,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\css\images\first.jpg" />
+    <None Include="Views\Shared\Error.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\css\images\wedo\" />
-    <Folder Include="wwwroot\css\images\blog\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\API\CRM.API.csproj" />
     <ProjectReference Include="..\CRM.API.Service\CRM.API.Service.csproj" />
   </ItemGroup>
 

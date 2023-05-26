@@ -5,14 +5,14 @@ body {
 }
 
 .work__sheet {
-    display: flex;
+    display: block;
     background: #d0d0d0;
-    width: 92%;
-    height: 93%;
+    width: 85%;
+    height: 85%;
     /* justify-content: right; */
     position: absolute;
-    margin-left: 148px;
-    margin-top: 76px;
+    margin-left: 200px;
+    margin-top: 0px;
 }
 
 .work__cons {
@@ -27,8 +27,8 @@ body {
     text-align: center;
 }
 
-.table__content{
-    margin-top: 150px;
+.table__content {
+    margin-top: 150px;    
 }
 
 .table__name{
@@ -61,6 +61,6 @@ body {
     border: 2px solid gray;
     font-size: 14px;
     font-weight: 700;
-    color: gray;
+    color: white;
     text-decoration: none;
 }

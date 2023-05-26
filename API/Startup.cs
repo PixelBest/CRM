@@ -1,6 +1,7 @@
 ﻿using CRM.API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Test.DAL;
 
 namespace CRM.API
 {
@@ -16,7 +17,7 @@ namespace CRM.API
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<DiaryContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
 
             services.AddControllers();
 

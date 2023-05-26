@@ -5,9 +5,10 @@
     Layout = null;
 }
 
-<head >
-    <link rel="stylesheet" href="~/css/style.css"/>
-    <link rel="stylesheet" href="~/css/style1.css"/>
+<head>
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/style1.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Jost:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <header class="header">
@@ -17,7 +18,7 @@
 
             <nav class="nav">
                 <a class="nav__link" asp-controller="Home" asp-action="Index">Главная</a>
-                <a class="nav__link" asp-controller="Home" asp-action="Service">Услугу</a>
+                <a class="nav__link" asp-controller="Home" asp-action="Service">Услуги</a>
                 <a class="nav__link" asp-controller="Home" asp-action="Project">Проекты</a>
                 <a class="nav__link" asp-controller="Home" asp-action="Blog">Блог</a>
                 <a class="nav__link" asp-controller="Home" asp-action="Contact">Контакты</a>
@@ -36,7 +37,7 @@
 
         <div class="about">
 
-            <div class="about__item">
+            @*<div class="about__item">
                 <div class="about__image">
                     <img src="~/css/images/services/1.jpg">
                 </div>
@@ -56,7 +57,21 @@
                     <img src="~/css/images/services/3.jpg">
                 </div>
                 <div class="serv__tittle">Доработка CRM</div>
-            </div>
+            </div>*@
+
+            @foreach(var a in Model)
+            {
+                <div class="about__item">
+                    <div class="about__image">
+                        @*<img src=@a.Url>*@
+
+                        <img src="data:image/gif;base64,@a.Url">
+
+                    </div>
+                    <label class="serv__tittle" for="ac1">@a.Name</label>
+                    <input class="acardion_input" type="checkbox" id="ac{@a.Id}" />
+                </div>
+            }
 
 
         </div>

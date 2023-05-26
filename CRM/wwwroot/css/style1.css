@@ -5,6 +5,7 @@
 .wedo__item {
     width: 50%;
     color: white;
+    overflow: hidden;
 }
 
 .acardion {
@@ -12,6 +13,7 @@
 
 .acardion__item {
     border: 1px solid white;
+    margin-bottom: 10px;
 }
 
 .acardion__header {
@@ -144,6 +146,7 @@ acardion__content {
     margin: 0px 10px;
     position: relative;
     cursor: pointer;
+    font-size: 15px;
 }
 
 .nav__link1:after{
@@ -180,7 +183,8 @@ acardion__content {
     margin: 0 auto;
 }
 
-.blog__image{
+.blog__image {
+    margin-top: 50px;
     margin-bottom: 25px;
 }
 
@@ -224,7 +228,7 @@ acardion__content {
 .header__logo3 {
     font-size: 30px;
     font-weight: 700;
-    color: white;
+    color: gray;
 }
 
 .conteiner6 {
@@ -245,37 +249,32 @@ acardion__content {
 
 .intro6 {
     width: 100%;
-    height: 8%;
+    height: 100vh;
     background-size: cover;
     position: absolute;
     flex-direction: column;
     justify-content: center;
     display: flex;
-    background:gray;
+    background: black;
 }
 
 .kek {
     width: 8%;
     height: 100%;
     justify-content: left;
-    background: gray;
+    background: black;
     display: flex;
     position: absolute;
 }
 
 .nav__link1 {
-    color: white;
-    transition: color 0.1s linear;
+    display: block;
+    transition: color 0.2s linear;
+    padding: 10px;
+    margin-bottom: 10px;
     text-decoration: none;
-    display: grid;
-    vertical-align: top;
-    margin: 0px 10px;
-    position: relative;
-    top: 100px;
-    left: 17px;
-    font-size:21px;
-    padding-bottom: 5px;
-    text-align:left;
+    text-align: center;
+    font-size: 18px;
 }
 .nav__link1:hover{
     color:#fce38a;
@@ -295,6 +294,7 @@ acardion__content {
     z-index: 1;
 
     transition: opacity 0.1s linear;
+   
 }
 .nav__link1:hover:after{
     opacity:1;

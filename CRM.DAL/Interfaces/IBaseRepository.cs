@@ -1,4 +1,10 @@
-﻿namespace CRM.DAL
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Test.DAL.Interface
 {
     public interface IBaseRepository<T>
     {

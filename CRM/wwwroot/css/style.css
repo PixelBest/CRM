@@ -1,4 +1,5 @@
 body {
+    font-family: 'Comfortaa', cursive;
     background: white;
     box-sizing: border-box;
     margin: 0;
@@ -60,18 +61,17 @@ body {
 
 .intro__inner{
     width: 100%;
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
 }
 
 .intro__tittle {
-    font-size: 100px;
+    font-size: 50px;
     font-weight: 700;
     text-transform: uppercase;
     line-height: 1;
-    color: white;
-    font-family: Myriad Pro;
+    color: white;    
 }
 
 .intro__tittle:after{
@@ -102,6 +102,7 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
     z-index: 1000;
     width: 100%;
+    
 }
 
 .header__logo{
@@ -114,6 +115,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size:14px;
     text-transform: uppercase;
     right: 30px;
+
 }
 
 .nav__link {
@@ -160,7 +162,7 @@ h1, h2, h3, h4, h5, h6 {
     color:white;
     text-transform: uppercase;
     text-decoration: none;
-
+    transition: background 0.1s linear, color 0.1s linear;
 }
 
 .btn:hover{
@@ -172,21 +174,25 @@ h1, h2, h3, h4, h5, h6 {
     padding: 80px 0;
 }
 
-.section__header {
+.section__header {   
     margin-top: 40px;
     width: 100%;
     max-width: 950px;
     margin: 0 auto 10px;
+
 }
 
 .sectio__suptittle {
-    font-size: 72px;
+    padding-top: 50px;
+    font-size: 60px;
     color: white;
     text-align: center;
+    line-height: 3;
 }
 
 .sectio__tittle {
-    font-size: 92px;
+    
+    font-size: 40px;
     font-weight: 700;
     color: white;
     text-transform: uppercase;
@@ -198,8 +204,8 @@ h1, h2, h3, h4, h5, h6 {
     content: "";
     display: block;
     width: 200px;
-    height: 3px;
-    margin: 30px auto;
+    height: 2px;
+    margin: 20px auto;
 
     background-color: white;
 }
@@ -222,10 +228,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .about__item {
-    width: 380px;
+    
     color: white;
     text-align: center;
-    background-color: #7FC7FF;
+    
     position: relative;
     cursor: pointer;
 }
@@ -235,11 +241,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .about__item:hover .about__image img{
-    opacity: 0.5;
+    opacity: 0.2;
 }
 
 .serv__tittle {
-    width: 100%;
+    width: 90%;
     color: white;
     text-align: center;
     font-size: 18px;
@@ -255,11 +261,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .about__image {
-    background: linear-gradient(to bottom, gray, white);
+    background: linear-gradient(to bottom, black, white);
+    width: 380px;
     transition: transform 0.2s linear;
 }
 
-.about__image img{
+.about__image img{    
     display:block;
     transition: opacity 0.1s linear;
 }

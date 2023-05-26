@@ -1,5 +1,4 @@
-﻿@using CRM.Models;
-@model IEnumerable<Application>
+﻿@model IEnumerable<Notes>
 
 @{
     Layout = null;
@@ -9,63 +8,56 @@
     <link rel="stylesheet" href="~/css/style.css" />
     <link rel="stylesheet" href="~/css/style1.css" />
     <link rel="stylesheet" href="~/css/style2.css" />
+    <link rel="stylesheet" href="~/css/styleWorker.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Jost:wght@300&display=swap" rel="stylesheet">
 </head>
 
-<header class="header4">
-    <div class="conteiner6">
-        <div class="header__inner3">
-            <div class="header__logo3">CRM - проект</div>
-        </div>
-    </div>
-</header>
+<body>
+    <header class="gray-header">
+        <h10>CRM - проект</h10>
+    </header>
 
-<div class="intro6">
 
-</div>
+    <hr class="horizontal-line">
 
-<div class="kek">
-    <nav>
-        <a class="nav__link1" asp-controller="Worker" asp-action="Index">Рабочий стол</a>
-        <a class="nav__link1" asp-controller="Worker" asp-action="Index">Главная</a>
-        <a class="nav__link1" asp-controller="Worker" asp-action="Index">Проекты</a>
-        <a class="nav__link1" asp-controller="Worker" asp-action="Index">Услуги</a>
-        <a class="nav__link1" asp-controller="Worker" asp-action="Index">Блог</a>
-    </nav>
-</div>
 
-<section class="work__sheet">
-    <div action="work__cons">
-        <div class="btn_work">
-            <a class="btn__click" href="#"> Сегодня</a>
-            <a class="btn__click" href="#">Вчера</a>
-            <a class="btn__click" href="#">Неделя</a>
-            <a class="btn__click" href="#">Месяц</a>
-        </div>
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <a class="nav__link1" asp-controller="Worker" asp-action="Index">Рабочий стол</a>
+                <a class="nav__link1" asp-controller="Worker" asp-action="Index">Главная</a>
+                <a class="nav__link1" asp-controller="Worker" asp-action="Wedo">Проекты</a>
+                <a class="nav__link1" asp-controller="Worker" asp-action="About">Услуги</a>
+                <a class="nav__link1" asp-controller="Worker" asp-action="Blog">Блог</a>
+            </ul>
+        </nav>
     </div>
 
-    <table class="table__content">
-        <tr class="table__name">
-            <th style="width:150px;">Номер заявки</th>
-            <th style="width:150px;">Время заявки</th>
-            <th style="width:150px;">Имя</th>
-            <th style="width:350px;">Текст заявки</th>
-            <th style="width:150px;">Контакты</th>
-            <th style="width:150px;">Статус</th>
-        </tr>
-        @if(Model != null)
-        {
-            foreach (var note in Model)
+    <section class="work__sheet">
+        <table class="table__content">
+            <tr class="table__name">
+                <th>Номер заявки</th>
+                <th>Время заявки</th>
+                <th>Имя</th>
+                <th>Текст заявки</th>
+                <th>Контакты</th>
+                <th>Статус</th>
+            </tr>
+            @if (Model != null)
             {
+                foreach (var note in Model)
+                {
                     <tr class="tabble">
-                    <th style="width:150px;">@note.Id</th>
-                    <th style="width:150px;">@note.Data</th>
-                    <th style="width:150px;">@note.Name</th>
-                    <th style="width:350px;">@note.Text</th>
-                    <th style="width:150px;">@note.Contact</th>
-                    <th style="width:150px;">@note.Status</th>
-                        <th style="width:150px;"><a class="button" href="#">Изменить статус</a></th>
+                        <td>@note.Id</td>
+                        <td>@note.Name</td>
+                        <td>@note.Surname</td>
+                        <td>@note.Phone</td>
+                        <td>@note.Address</td>
+                        <td>@note.Iban</td>
+                        @*<th style="width:auto;"><a class="button" href="#">Изменить статус</a></th>*@
                     </tr>
+                }
             }
-        }
-    </table>
-</section>
+        </table>
+    </section>
+</body>

@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace CRM.Domain.ViewModel
+namespace Test.Domain.ViewModel
 {
     public class LoginViewModel
     {
@@ -19,5 +19,7 @@ namespace CRM.Domain.ViewModel
         [DataType(DataType.Password)]
         [Display(Name = "Пароль")]
         public string Password { get; set; }
+
+        //public string ReturnUrl { get; set; }
     }
 }

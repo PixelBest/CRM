@@ -6,7 +6,7 @@ using System.Data;
 namespace CRM.Controllers
 {
 
-    //[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     public class WorkerController : Controller
     {
         DiaryApiStore diary = new DiaryApiStore();
@@ -14,7 +14,28 @@ namespace CRM.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var app = await diary.AllNotes();
+            var app = await diary.AllNotesAsync();
+            return View(app);
+        }
+        
+        [HttpGet]
+        public async Task<IActionResult> Blog()
+        {
+            var app = await diary.AllBlog();
+            return View(app);
+        }
+        
+        [HttpGet]
+        public async Task<IActionResult> Wedo()
+        {
+            var app = await diary.AllWedo();
+            return View(app);
+        }
+        
+        [HttpGet]
+        public async Task<IActionResult> About()
+        {
+            var app = await diary.AllAbout();
             return View(app);
         }
     }

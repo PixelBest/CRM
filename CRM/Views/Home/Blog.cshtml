@@ -5,9 +5,10 @@
     Layout = null;
 }
 
-<head >
-    <link rel="stylesheet" href="~/css/style.css"/>
-    <link rel="stylesheet" href="~/css/style1.css"/>
+<head>
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/style1.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Jost:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <header class="header">
@@ -17,7 +18,7 @@
 
             <nav class="nav">
                 <a class="nav__link" asp-controller="Home" asp-action="Index">Главная</a>
-                <a class="nav__link" asp-controller="Home" asp-action="Service">Услугу</a>
+                <a class="nav__link" asp-controller="Home" asp-action="Service">Услуги</a>
                 <a class="nav__link" asp-controller="Home" asp-action="Project">Проекты</a>
                 <a class="nav__link" asp-controller="Home" asp-action="Blog">Блог</a>
                 <a class="nav__link" asp-controller="Home" asp-action="Contact">Контакты</a>
@@ -30,11 +31,10 @@
 <section class="section1">
     <div class="conteiner_1">
         <div class="section_header">
-            <h2 class="sectio_tittle">Блог</h2>
         </div>
 
         <div class="blog">
-            <div class="blog__item">
+            @*<div class="blog__item">
 
                 <div class="blog__image">
                     <img src="~/css/images/blog/1.jpg" />
@@ -96,7 +96,27 @@
                         ‘специфики.
                     </p>
                 </div>
-            </div>
+            </div>*@
+
+            @foreach(var a in Model)
+            {
+                <div class="blog__item">
+
+                    <div class="blog__image">
+                        <img src="data:image/gif;base64,@a.Url">
+                    </div>
+
+                    <nav class="nav">
+                        <a class="nav__link1" href="#">@a.Name</a>
+                    </nav>
+
+                    <div class="blog__text">
+                        <p>
+                            @a.Text
+                        </p>
+                    </div>
+                </div>
+            }
         </div>
     </div>
 </section>

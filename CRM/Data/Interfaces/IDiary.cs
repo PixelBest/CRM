@@ -1,17 +1,17 @@
-﻿using CRM.Models;
+﻿using Test.Models;
 
-namespace CRM.Data.Interfaces
+namespace Test.Data
 {
     public interface IDiary
     {
-        Task<IEnumerable<Application>> AllNotes();
+        Task<IEnumerable<Notes>> AllNotesAsync();
 
-        Task<Application> GetNoteById(int id);
+        Task<Notes> GetNoteByIdAsync(int id);
 
-        Task AddNote(Application note);
+        Task AddNoteAsync(Notes note);
 
-        Task DeleteNote(int id);
+        Task DeleteNoteAsync(int id);
 
-        Task UpdateNote(Application note);
+        Task UpdateNoteAsync(Notes note);
     }
 }

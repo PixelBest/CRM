@@ -7,7 +7,7 @@ namespace CRM.API.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Url { get; set; }
+        public byte[] Url { get; set; }
         public string Text { get; set; }
     }
 }

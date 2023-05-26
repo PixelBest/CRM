@@ -1,12 +1,14 @@
 ﻿@using CRM.Models;
 @model IEnumerable<Wedo> 
 
-@{    Layout = null;
+@{
+    Layout = null;
 }
 
-<head >
-    <link rel="stylesheet" href="~/css/style.css"/>
-    <link rel="stylesheet" href="~/css/style1.css"/>
+<head>
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/style1.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Jost:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <header class="header">
@@ -16,7 +18,7 @@
 
             <nav class="nav">
                 <a class="nav__link" asp-controller="Home" asp-action="Index">Главная</a>
-                <a class="nav__link" asp-controller="Home" asp-action="Service">Услугу</a>
+                <a class="nav__link" asp-controller="Home" asp-action="Service">Услуги</a>
                 <a class="nav__link" asp-controller="Home" asp-action="Project">Проекты</a>
                 <a class="nav__link" asp-controller="Home" asp-action="Blog">Блог</a>
                 <a class="nav__link" asp-controller="Home" asp-action="Contact">Контакты</a>
@@ -40,7 +42,7 @@
 
             <div class="wedo__item">
                 <div class="acardion">
-                    <div class="acardion__item">
+                    @*<div class="acardion__item">
                         <label class="acardion__tittle" for="ac_1">Импортозамещение</label>
                         <input class="acardion__input" type="checkbox" id="ac_1" />
                         <div class="ac__text">
@@ -102,7 +104,19 @@
                                 "поддержки и сопровождения информационных систем» (СТПИС).
                             </p>
                         </div>
-                    </div>
+                    </div>*@
+                    @foreach(var n in Model)
+                    {
+                        <div class="acardion__item">
+                            <label class="acardion__tittle" for="ac_@n.Id">@n.Name</label>
+                            <input class="acardion__input" type="checkbox" id="ac_@n.Id" />
+                            <div class="ac__text">
+                                <p>
+                                    @n.Text
+                                </p>
+                            </div>
+                        </div>
+                    }
                 </div>
 
 

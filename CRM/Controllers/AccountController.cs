@@ -1,23 +1,20 @@
-﻿using CRM.API.Interfaces;
-using CRM.Data;
-using CRM.Domain.ViewModel;
-using CRM.Models;
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Text;
+using Test.Domain.ViewModel;
+using Test.Models;
+using Test.Service.Interfaces;
 
-namespace CRM.Controllers
+namespace Test.Controllers
 {
     public class AccountController : Controller
     {
-
-        DiaryApiStore diary = new DiaryApiStore();
-        public IActionResult Login()
-        {
-            return View();
-        }
         private readonly IAccountService _accountService;
 
         public AccountController(IAccountService accountService)
@@ -25,22 +22,36 @@ namespace CRM.Controllers
             _accountService = accountService;
         }
 
+        [HttpGet]
+        public IActionResult Login() => View();
+
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel author)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var response = await _accountService.Login(author);
+                var response = await _accountService.Login(model);
+                if (response.StatusCode == Domain.Enum.StatusCode.OK)
+                {
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                        new ClaimsPrincipal(response.Data));
 
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-                    new ClaimsPrincipal(response.Data));
-
-                return RedirectToAction("Index", "Worker");
-
+                    return RedirectToAction("Index", "Home");
+                }
+                ModelState.AddModelError("", response.Description);
             }
-            return View(author);
+            return View(model);
+
         }
+
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }
